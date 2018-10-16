@@ -5,10 +5,9 @@
     <classes>
       <class name="actions.BookerActions">
         <methods>
-          <include name="SearchFlight"/>
           <include name="beforeTest"/>
-          <include name="BookerLogin"/>
           <include name="afterTest"/>
+          <include name="CheckBookerLogin"/>
         </methods>
       </class> <!-- actions.BookerActions -->
     </classes>

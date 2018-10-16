@@ -102,7 +102,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="actions.BookerActions" class="method navigator-link" hash-for-method="VATRequest(0988100942, 123456)">VATRequest(0988100942, 123456)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="actions.BookerActions" class="method navigator-link" hash-for-method="CheckBookerLoginUsingQuery">CheckBookerLoginUsingQuery</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -125,10 +125,9 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="VATRequest(0988100942, 123456)">
-                  </a> <!-- VATRequest(0988100942, 123456) -->
-                  <span class="method-name">VATRequest</span>
-                  <span class="parameters">(0988100942, 123456)</span>
+                  <a name="CheckBookerLoginUsingQuery">
+                  </a> <!-- CheckBookerLoginUsingQuery -->
+                  <span class="method-name">CheckBookerLoginUsingQuery</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -144,8 +143,6 @@
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot; verbose=&quot;0&quot;&gt;
-    &lt;parameter name=&quot;password&quot; value=&quot;123456&quot;/&gt;
-    &lt;parameter name=&quot;username&quot; value=&quot;0988100942&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;actions.BookerActions&quot;/&gt;
     &lt;/classes&gt;
@@ -189,14 +186,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'VATRequest')
+data.setCell(0, 1, 'CheckBookerLoginUsingQuery')
 data.setCell(0, 2, 'actions.BookerActions')
-data.setCell(0, 3, 24498);
+data.setCell(0, 3, 40071);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 24 seconds</span>
+              <span class="suite-total-time">Total running time: 40 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -228,12 +225,12 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">VATRequest(0988100942, 123456)</span>
-                <span class="method-start">6477 ms</span>
+                <span class="method-name">CheckBookerLoginUsingQuery</span>
+                <span class="method-start">5698 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">30977 ms</span>
+                <span class="method-start">45770 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

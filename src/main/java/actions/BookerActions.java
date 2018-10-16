@@ -2,6 +2,7 @@ package actions;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,13 +13,246 @@ import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.*;
+//import org.openqa.selenium.firefox.FirefoxBinary;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.firefox.FirefoxProfile;
+
+import com.codoid.products.exception.FilloException;
+import com.codoid.products.fillo.Connection;
+import com.codoid.products.fillo.Fillo;
+import com.codoid.products.fillo.Recordset;
+import java.util.ArrayList;
+
 import actions.BaseTest;
 import utils.TimeUtils;
+import utils.Util;
+
+import org.apache.commons.io.FileUtils;
 
 public class BookerActions extends BaseTest 
-
-
 {
+	//------------------------------------------- Method 0 - kiem tra viec login vao tk booker voi các truong hop test khac nhau, data lay tu file excel, su dung thu vien fillo - cach nay gon nhe hon
+	@Parameters()
+	 @Test(enabled = true)
+	public void CheckBookerLoginUsingQuery() throws Exception
+	{
+		 System.out.println("Thuc hien viec kiem tra cac truong hop login vao trang");
+		   System.out.println(" "
+		   		+ "      * SS1: Enter valid userid & password \r\n" + 
+		   		"	     *      Expected: Login successful home page shown \r\n" + 
+		   		"	     * SS2: Enter invalid userid & valid password \r\n" + 
+		   		"	     * SS3: Enter valid userid & invalid password \r\n" + 
+		   		"	     * SS4: Enter invalid userid & invalid password \r\n" + 
+		   		"	     *      Expected: A pop-up �User or Password is not valid� is shown "); 
+		 String uName, uPass;
+
+		  String actualTitle, actualBoxtitle;
+		  // output mong muốn
+
+		  String EXPECT_TITLE = "Tripi.vn - Đặt vé máy bay và khách sạn thuận tiện với giá tốt nhất";
+		  String EXPECT_ERROR1 = "Mật khẩu không hợp lệ";
+		  String EXPECT_ERROR2 = "Tài khoản chưa được đăng ký tại hệ thống";
+
+		  String tc = "Test case so";
+		  
+		  //Xu ly ket noi file excel, thuc hien truy van
+		  Fillo fillo = new Fillo();
+		  Connection conn = fillo.getConnection("testData.xls");
+		  String query = "Select * from Data";
+		  Recordset record = conn.executeQuery(query);		  
+		  List<String> name = new ArrayList<>();
+		  List<String> pass = new ArrayList<>();
+		  // thêm name và pass vào mảng
+		  while (record.next()) 
+		  {
+
+		   name.add(record.getField("username"));
+		   pass.add(record.getField("password"));
+
+		  }		  
+		  
+
+		  // mỗi vị trí i, lấy name và pass ở 2 cột tương ứng		  
+		  driver.findElement(By.cssSelector(".icons-v2.i-user-w-t")).click();		 				
+		  TimeUtils.sleep(2);	
+			
+		  for (int i = 0; i < name.size(); i++) 
+		  {
+
+		   uName = name.get(i);
+		   uPass = pass.get(i);
+		   
+		   //Chọn trường username
+			driver.findElement(By.cssSelector("#username")).clear();
+			driver.findElement(By.cssSelector("#username")).sendKeys(uName);
+			 			
+			//Chon trường password
+			driver.findElement(By.cssSelector("#password")).clear();						 			
+			driver.findElement(By.cssSelector("#password")).sendKeys(uPass);
+			 			
+			//Ấn nút Đăng nhập
+			driver.findElement(By.cssSelector("#submit-btn")).click();	
+			TimeUtils.sleep(5);	 
+			
+		   try 
+		   {
+			   WebElement loginForm = driver.findElement(By.cssSelector(".tlp-login-form"));
+		       actualBoxtitle = loginForm.findElement(By.cssSelector(".ng-binding")).getText();
+
+		       // So sánh lỗi thực tế với lỗi mong đợi
+
+		       if (actualBoxtitle.contains(EXPECT_ERROR1)||actualBoxtitle.contains(EXPECT_ERROR2)) 
+		       {		    	
+		    	   System.out.println(tc + "[" + i + "]: Passed");
+		       } 
+		       else 
+		       {
+		    	   System.out.println(tc + "[" + i + "]: Failed");
+		       }
+		   } 
+		   
+		   catch (Exception Ex) 
+		   {
+			   actualTitle = driver.getTitle();
+			   // So sánh title thực tế với title mong đợi
+			   if (actualTitle.contains(EXPECT_TITLE)) 
+			   {
+				   System.out.println(tc + "[" + i + "]: Login thanh cong");
+			   } 
+			   else 
+			   {
+				   System.out.println(tc + "[" + i + "]: Login loi");   
+			   }
+			   File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				// Code to save screenshot at desired location
+				FileUtils.copyFile(scrFile, new File("C:\\Users\\Asrock.DESKTOP-1D8CK3P\\eclipse-workspace\\BookerActions\\screenshot.png"));
+				
+			   driver.findElement(By.cssSelector(".dropdown.user-menu")).click();
+			   TimeUtils.sleep(1);	   
+			   driver.findElement(By.cssSelector(".huf-uf-item.logout.ng-isolate-scope")).click();
+			   TimeUtils.sleep(1);	   
+			   driver.findElement(By.cssSelector(".btn.width-65.btn-danger")).click();
+			   TimeUtils.sleep(5);	  
+			   driver.findElement(By.cssSelector(".icons-v2.i-user-w-t")).click();		 				
+			   TimeUtils.sleep(2);	
+		   }
+		  }
+		  // đóng kết nối
+		  record.close();
+		  conn.close();
+
+		 }
+	
+
+	
+	
+	
+	//------------------------------------------- Method 0
+	    /**
+	     * SS1: Enter valid userid & password 
+	     *      Expected: Login successful home page shown 
+	     * SS2: Enter invalid userid & valid password 
+	     * SS3: Enter valid userid & invalid password 
+	     * SS4: Enter invalid userid & invalid password 
+	     *      Expected: A pop-up �User or Password is not valid� is shown
+	     * 
+	     * @throws Exception
+	     */
+	 //  @Parameters()
+	  // @Test(enabled = true)
+	    public void CheckBookerLoginReadDatFromXlsFile() throws Exception 
+	    {
+		   System.out.println("Thuc hien viec kiem tra cac truong hop login vao trang");
+		   System.out.println(" "
+		   		+ "      * SS1: Enter valid userid & password \r\n" + 
+		   		"	     *      Expected: Login successful home page shown \r\n" + 
+		   		"	     * SS2: Enter invalid userid & valid password \r\n" + 
+		   		"	     * SS3: Enter valid userid & invalid password \r\n" + 
+		   		"	     * SS4: Enter invalid userid & invalid password \r\n" + 
+		   		"	     *      Expected: A pop-up �User or Password is not valid� is shown ");
+		// Read test data from excel file
+	    // Method 	getDataFromExcel is defined in class Util
+	    String[][] testData = Util.getDataFromExcel(Util.FILE_PATH,	Util.SHEET_NAME, Util.TABLE_NAME);
+		String username, password;
+		String actualTitle;
+		String actualBoxtitle;
+		
+		//Testing for all parameters stored in the Excel File
+		
+		 // Click vao button Login		
+		driver.findElement(By.cssSelector(".icons-v2.i-user-w-t")).click();		 				
+		TimeUtils.sleep(2);	
+		
+		for (int i = 0; i < testData.length; i++)
+		{
+		    username = testData[i][0]; // get username
+		    password = testData[i][1]; // get password		   
+		
+		//Chọn trường username
+		driver.findElement(By.cssSelector("#username")).clear();
+		driver.findElement(By.cssSelector("#username")).sendKeys(username);
+		 			
+		//Chon trường password
+		driver.findElement(By.cssSelector("#password")).clear();			
+		 			//passwordField.click();	
+		driver.findElement(By.cssSelector("#password")).sendKeys(password);
+		 			
+		//Ấn nút Đăng nhập
+		driver.findElement(By.cssSelector("#submit-btn")).click();	
+		TimeUtils.sleep(5);	    
+		  
+	       
+	        /* Determine Pass Fail Status of the Script
+	         * If login credentials are correct,  Alert(Pop up) is NOT present. An Exception is thrown and code in catch block is executed	
+	         * If login credentials are invalid, Alert is present. Code in try block is executed 	    
+	         */
+		    try
+		    { 
+		        //neu login khong thanh cong -> get ve message bao loi
+		       	WebElement loginForm = driver.findElement(By.cssSelector(".tlp-login-form"));
+		       	actualBoxtitle = loginForm.findElement(By.cssSelector(".ng-binding")).getText();
+
+				if (actualBoxtitle.contains("Mật khẩu không hợp lệ") || actualBoxtitle.contains("Tài khoản chưa được đăng ký tại hệ thống")) 
+				{ // Compare Error Text with Expected Error Value
+				    System.out.println("Test case SS[" + i + "]: Passed"); 
+				} 
+				else 
+				{
+				    System.out.println("Test case SS[" + i + "]: Failed");
+				}
+			}    
+		    catch (Exception ex)
+		    { 
+		    	//neu login thanh cong -> get ve title cua trang
+		    	ex.printStackTrace();
+		    	actualTitle = driver.getTitle();
+				// On Successful login compare Actual Page Title with Expected Title
+				if (actualTitle.contains(Util.EXPECT_TITLE)) 
+				{
+				    System.out.println("Test case SS[" + i + "]: Passed");
+				} else 
+				{
+				    System.out.println("Test case SS[" + i + "]: Failed");
+				}
+				driver.findElement(By.cssSelector(".dropdown.user-menu")).click();
+				TimeUtils.sleep(1);	   
+				driver.findElement(By.cssSelector(".huf-uf-item.logout.ng-isolate-scope")).click();
+				TimeUtils.sleep(1);	   
+				driver.findElement(By.cssSelector(".btn.width-65.btn-danger")).click();
+				TimeUtils.sleep(5);	  
+				driver.findElement(By.cssSelector(".icons-v2.i-user-w-t")).click();		 				
+				TimeUtils.sleep(2);	
+	        } 
+		    
+		    }       
+			
+		    }
+	
+	/*
+	
 		//------------------------------------------- Method 1
 	    //@Parameters({"username","password"})
 	    //@Test(enabled = true)
@@ -31,9 +265,11 @@ public class BookerActions extends BaseTest
 			TimeUtils.sleep(2);	
 			
 			//Chọn trường username
-			WebElement usernameField = driver.findElement(By.cssSelector("#username"));			
-			usernameField.click();	
-			usernameField.sendKeys(username);
+			//WebElement usernameField = driver.findElement(By.cssSelector("#username"));			
+			//usernameField.click();	
+			//usernameField.sendKeys(username);
+			driver.findElement(By.cssSelector("#username")).clear();
+			driver.findElement(By.cssSelector("#username")).sendKeys(username);
 			
 			//Chon trường password
 			WebElement passwordField = driver.findElement(By.cssSelector("#password"));			
@@ -41,12 +277,13 @@ public class BookerActions extends BaseTest
 			passwordField.sendKeys(password);
 			
 			//Ấn nút Đăng nhập
-			WebElement loginButton = driver.findElement(By.cssSelector("#submit-btn"));			
-			loginButton.click();	
+			driver.findElement(By.cssSelector("#submit-btn")).click();	
+			
 			TimeUtils.sleep(7);	
 			System.out.println("Login thành công");
 		}
-				
+		
+		
 		
 		//@Parameters({"from_airport","to_airport","from_date_add","to_date_add","adult_num","child_num","infant_num"})
 		//@Test(enabled = true)
@@ -246,6 +483,9 @@ public class BookerActions extends BaseTest
 					WebElement searchButton = driver.findElement(By.cssSelector(".flight-search-button"));		
 					searchButton.click();		
 					TimeUtils.sleep(30);
+					 File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				  // Code to save screenshot at desired location
+				   FileUtils.copyFile(scrFile, new File("C:\\Users\\Asrock.DESKTOP-1D8CK3P\\eclipse-workspace\\BookerActions\\screenshot_searchresult.png"));
 					System.out.println("Da thuc hien tim kiem xong");
 		}
 
@@ -341,15 +581,15 @@ public class BookerActions extends BaseTest
 	    					dropdown2.selectByVisibleText("Nữ");
 	    					TimeUtils.sleep(5);			
 	    			
-	    				/*	//Chon mua them hanh ly
+	    					//Chon mua them hanh ly
 	    					//The chon hanh ly
-	    					WebElement baggagesDiv = driver.findElement(By.cssSelector(".row"));
+	    					//WebElement baggagesDiv = driver.findElement(By.cssSelector(".row"));
 	    					//chon hanh ly hanh khach thu nhat - chon goi 15kg
-	    					WebElement baggagesNum = baggagesDiv.findElement(By.cssSelector(".form-control.baggage"));
-	    					Select dropdown3= new Select(baggagesNum);	
+	    					//WebElement baggagesNum = baggagesDiv.findElement(By.cssSelector(".form-control.baggage"));
+	    					//Select dropdown3= new Select(baggagesNum);	
 	    					//dropdown3.selectByVisibleText("Gói (Bag) 15 kg - 160.000đ");	
-	    					 dropdown3.selectByIndex(1);
-	    					TimeUtils.sleep(5);	*/	
+	    					// dropdown3.selectByIndex(1);
+	    					//TimeUtils.sleep(5);		
 	    					
 	    					//Nhap thong tin khach hang
 	    					//tim the danh sach khach hang
@@ -428,6 +668,9 @@ public class BookerActions extends BaseTest
 	    					
 	    					List<WebElement> successElement = driver.findElements(By.cssSelector(".ng-binding"));	    					
 	    					Assert.assertEquals(successElement.get(1).getText(),"Giao dịch thành công.");
+	    					 File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				           // Code to save screenshot at desired location
+							FileUtils.copyFile(scrFile, new File("C:\\Users\\Asrock.DESKTOP-1D8CK3P\\eclipse-workspace\\BookerActions\\paymentsuccess.png"));
 	    					
 	    					
 	    }		
@@ -500,6 +743,9 @@ public class BookerActions extends BaseTest
 			Assert.assertEquals(successElement.get(1).getText(),"Giao dịch thành công");
 					
 			System.out.println("Thuc hien mua hanh ly thanh cong");		
+			 File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				// Code to save screenshot at desired location
+				FileUtils.copyFile(scrFile, new File("C:\\Users\\Asrock.DESKTOP-1D8CK3P\\eclipse-workspace\\BookerActions\\themhanhlythanhcong.png"));
 			
 		}
 
@@ -586,7 +832,9 @@ public class BookerActions extends BaseTest
 				TimeUtils.sleep(10);
 				List<WebElement> successElement = driver.findElements(By.cssSelector(".ng-binding"));	    					
 				Assert.assertEquals(successElement.get(1).getText(),"Giao dịch thành công");
-						
+				 File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				// Code to save screenshot at desired location
+				FileUtils.copyFile(scrFile, new File("C:\\Users\\Asrock.DESKTOP-1D8CK3P\\eclipse-workspace\\BookerActions\\doihanhtrinhthanhcong.png"));		
 				System.out.println("Thuc hien doi hanh trinh thanh cong");				
 						
             }	
@@ -768,6 +1016,10 @@ public class BookerActions extends BaseTest
 					WebElement sendBtn = driver.findElement(By.cssSelector(".btn.default-confirm-button"));
 					sendBtn.click();
 					TimeUtils.sleep(3);	
+					
+				//	List<WebElement> successElement = driver.findElements(By.cssSelector(".ng-binding"));	    					
+				//	Assert.assertEquals(successElement.get(1).getText(),"Yêu cầu xuất hóa đơn VAT đã được gửi thành công");
+					
 					}
 					catch(Exception e)
 					{
@@ -779,6 +1031,7 @@ public class BookerActions extends BaseTest
 					}
 					
 				}
-}
+*/
+			}
 
 
