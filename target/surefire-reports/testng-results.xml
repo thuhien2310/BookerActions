@@ -1,21 +1,274 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="8" passed="7" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-10-16T04:13:38Z" name="Suite" finished-at="2018-10-16T04:14:25Z" duration-ms="46581">
+  <suite started-at="2018-10-17T09:47:44Z" name="Suite" finished-at="2018-10-17T09:54:34Z" duration-ms="409739">
     <groups>
     </groups>
-    <test started-at="2018-10-16T04:13:38Z" name="Test" finished-at="2018-10-16T04:14:25Z" duration-ms="46581">
+    <test started-at="2018-10-17T09:47:44Z" name="Test" finished-at="2018-10-17T09:54:34Z" duration-ms="409739">
       <class name="actions.BookerActions">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:actions.BookerActions@53aad5d5]" started-at="2018-10-16T04:13:38Z" name="beforeTest" finished-at="2018-10-16T04:13:44Z" duration-ms="5698" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:47:45Z" name="beforeTest" finished-at="2018-10-17T09:47:50Z" duration-ms="5528" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="CheckBookerLoginUsingQuery()[pri:0, instance:actions.BookerActions@53aad5d5]" started-at="2018-10-16T04:13:44Z" name="CheckBookerLoginUsingQuery" finished-at="2018-10-16T04:14:24Z" duration-ms="40071" status="PASS">
+        <test-method signature="BookerLogin(java.lang.String, java.lang.String)[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:47:50Z" name="BookerLogin" finished-at="2018-10-17T09:48:03Z" duration-ms="12468" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0988100942]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[123456]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BookerLogin -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:48:03Z" name="afterTest" finished-at="2018-10-17T09:48:03Z" duration-ms="932" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:48:03Z" name="beforeTest" finished-at="2018-10-17T09:48:09Z" duration-ms="5978" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="CheckBookerLoginUsingQuery()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:48:09Z" name="CheckBookerLoginUsingQuery" finished-at="2018-10-17T09:48:49Z" duration-ms="39406" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckBookerLoginUsingQuery -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:actions.BookerActions@53aad5d5]" started-at="2018-10-16T04:14:24Z" name="afterTest" finished-at="2018-10-16T04:14:25Z" duration-ms="794" status="PASS">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:48:49Z" name="afterTest" finished-at="2018-10-17T09:48:50Z" duration-ms="790" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:48:50Z" name="beforeTest" finished-at="2018-10-17T09:48:55Z" duration-ms="5118" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="BookFlight(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, int, int, int, int)[pri:3, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:48:55Z" name="BookFlight" finished-at="2018-10-17T09:51:17Z" duration-ms="141866" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0988100942]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[123456]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[DAD]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[SGN]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[9]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Giao dịch thành công.] but found [Có lỗi xảy ra, giao dịch không thành công.]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Giao dịch thành công.] but found [Có lỗi xảy ra, giao dịch không thành công.]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:453)
+at org.testng.Assert.assertEquals(Assert.java:463)
+at actions.BookerActions.BookFlight(BookerActions.java:670)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:178)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:92)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:96)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:159)
+at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:87)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BookFlight -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:51:17Z" name="afterTest" finished-at="2018-10-17T09:51:17Z" duration-ms="866" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:51:17Z" name="beforeTest" finished-at="2018-10-17T09:51:22Z" duration-ms="4933" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="AddBaggage(java.lang.String, java.lang.String)[pri:4, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:51:22Z" name="AddBaggage" finished-at="2018-10-17T09:52:04Z" duration-ms="41890" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0988100942]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[123456]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddBaggage -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:52:04Z" name="afterTest" finished-at="2018-10-17T09:52:05Z" duration-ms="748" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:52:05Z" name="beforeTest" finished-at="2018-10-17T09:52:10Z" duration-ms="5393" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="ChangeItinerary(java.lang.String, java.lang.String)[pri:5, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:52:10Z" name="ChangeItinerary" finished-at="2018-10-17T09:52:55Z" duration-ms="44066" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0988100942]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[123456]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ChangeItinerary -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:52:55Z" name="afterTest" finished-at="2018-10-17T09:52:55Z" duration-ms="784" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:52:55Z" name="beforeTest" finished-at="2018-10-17T09:53:00Z" duration-ms="5108" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="ResendConfirmEmail(java.lang.String, java.lang.String)[pri:6, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:53:00Z" name="ResendConfirmEmail" finished-at="2018-10-17T09:53:27Z" duration-ms="26777" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0988100942]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[123456]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResendConfirmEmail -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:53:27Z" name="afterTest" finished-at="2018-10-17T09:53:28Z" duration-ms="769" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:53:28Z" name="beforeTest" finished-at="2018-10-17T09:53:33Z" duration-ms="5230" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="RefundRequest(java.lang.String, java.lang.String)[pri:7, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:53:33Z" name="RefundRequest" finished-at="2018-10-17T09:54:00Z" duration-ms="26794" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0988100942]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[123456]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RefundRequest -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:54:00Z" name="afterTest" finished-at="2018-10-17T09:54:01Z" duration-ms="973" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:54:01Z" name="beforeTest" finished-at="2018-10-17T09:54:06Z" duration-ms="5473" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="VATRequest(java.lang.String, java.lang.String)[pri:8, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:54:06Z" name="VATRequest" finished-at="2018-10-17T09:54:33Z" duration-ms="27047" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0988100942]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[123456]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VATRequest -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:actions.BookerActions@52102734]" started-at="2018-10-17T09:54:33Z" name="afterTest" finished-at="2018-10-17T09:54:34Z" duration-ms="758" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->

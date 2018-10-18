@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestSuite" time="40.072" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="TestSuite" time="360.336" tests="8" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="10.0.1+10"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\Asrock.DESKTOP-1D8CK3P\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf9728942425943477275.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\Asrock.DESKTOP-1D8CK3P\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf7630272975446698027.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk-10.0.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jdk-10.0.1/bin/server;C:/Program Files/Java/jdk-10.0.1/bin;C:\Program Files\Java\jre-10.0.1;C:\Users\Asrock.DESKTOP-1D8CK3P\AppData\Local\Android\Sdk\platform-tools;C:\Users\Asrock.DESKTOP-1D8CK3P\AppData\Local\Android\Sdk\tools\bin;C:\Users\Asrock.DESKTOP-1D8CK3P\AppData\Local\Android\Sdk\tools;C:\Users\Asrock.DESKTOP-1D8CK3P\AppData\Local\Android\Sdk;C:\Program Files\Java\jdk-10.0.1\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\gecko;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\TortoiseGit\bin;C:\Users\Asrock.DESKTOP-1D8CK3P\AppData\Local\Microsoft\WindowsApps;;C:\Users\Asrock.DESKTOP-1D8CK3P\Desktop;;."/>
     <property name="jdk.debug" value="release"/>
@@ -61,5 +61,64 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="CheckBookerLoginUsingQuery" classname="actions.BookerActions" time="40.072"/>
+  <testcase name="BookerLogin" classname="actions.BookerActions" time="12.468"/>
+  <testcase name="CheckBookerLoginUsingQuery" classname="actions.BookerActions" time="39.415"/>
+  <testcase name="BookFlight" classname="actions.BookerActions" time="141.881">
+    <failure message="expected [Giao dịch thành công.] but found [Có lỗi xảy ra, giao dịch không thành công.]" type="java.lang.AssertionError">java.lang.AssertionError: expected [Giao dịch thành công.] but found [Có lỗi xảy ra, giao dịch không thành công.]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at actions.BookerActions.BookFlight(BookerActions.java:670)
+</failure>
+    <system-out>3. Thuc hien dat va thanh toan ve qua cong thanh toan ATM - ngan hang NCB
+Thuc hien viec login vao tai khoan booker 0988100942
+Login th�nh c�ng
+-----Thuc hien viec tim kiem ve may bay tu DAD den SGN.Tong so hanh khach: 2
+Ngay hien tai  17-10-2018
+Ngay khoi hanh muon tim kiem 20-10-2018
+Month : th�ng 10 2018
+Thang cua calendar dang hien thi - thang : 10
+Thang cua ngay khoi hanh trung voi thang hien tai calendar dang hien thi
+Ngay di: 20/10
+Ngay hien tai  17-10-2018
+Ngay khoi hanh chieu di muon tim kiem 26-10-2018
+Thang cua calendar dang hien thi: 10
+to_month == monthOfCalendarInt
+Thang cua ngay khoi hanh chieu ve trung voi thang hien tai calendar dang hien thi
+Ngay ve: 26/10-----------
+Da thuc hien tim kiem xong
+Chon ve chieu di:
+VietJet Air
+Chon ve chieu ve:
+VietJet Air
+</system-out>
+    <system-err><![CDATA[[Child 7288, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+[GPU 12276, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1539769730142	geckodriver	INFO	geckodriver 0.21.0
+1539769730145	geckodriver	INFO	Listening on 127.0.0.1:41674
+1539769730662	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Asrock.DESKTOP-1D8CK3P\\AppData\\Local\\Temp\\rust_mozprofile.hXHcforKIuvE"
+1539769732086	Marionette	INFO	Listening on port 51341
+Oct 17, 2018 4:48:52 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+JavaScript error: https://dev.tripi.vn/, line 1: ReferenceError: fbq is not defined
+JavaScript error: https://dev.tripi.vn/, line 1: ReferenceError: fbq is not defined
+JavaScript error: https://dev.tripi.vn/flights/tickets?fromAirport=DAD&toAirport=SGN&fromAirportText=%C4%90%C3%A0%20N%E1%BA%B5ng%20(DAD)&toAirportText=T%C3%A2n%20S%C6%A1n%20Nh%E1%BA%A5t%20(SGN)&departureDate=20-10-2018&returnDate=26-10-2018&numAdults=2&numChildren=0&numInfants=0&ticketClassId=1&oneWay=0, line 1: ReferenceError: fbq is not defined
+JavaScript error: https://dev.tripi.vn/flights/tickets?fromAirport=DAD&toAirport=SGN&fromAirportText=%C4%90%C3%A0%20N%E1%BA%B5ng%20(DAD)&toAirportText=T%C3%A2n%20S%C6%A1n%20Nh%E1%BA%A5t%20(SGN)&departureDate=20-10-2018&returnDate=26-10-2018&numAdults=2&numChildren=0&numInfants=0&ticketClassId=1&oneWay=0, line 1: ReferenceError: fbq is not defined
+JavaScript error: https://dev.tripi.vn/flights/booking?requestIdOutBound=-445165543&requestIdInBound=-445165543&fromAirport=DAD&toAirport=SGN&departureDate=20-10-2018&returnDate=26-10-2018&ticketClassId=1&numAdults=2&numChildren=0&numInfants=0&oneWay=0&ticketOutBoundId=-1296511014&ticketInBoundId=769244430&agencyIdOutBound=4&agencyIdInBound=4, line 1: ReferenceError: fbq is not defined
+JavaScript error: https://dev.tripi.vn/flights/booking?requestIdOutBound=-445165543&requestIdInBound=-445165543&fromAirport=DAD&toAirport=SGN&departureDate=20-10-2018&returnDate=26-10-2018&ticketClassId=1&numAdults=2&numChildren=0&numInfants=0&oneWay=0&ticketOutBoundId=-1296511014&ticketInBoundId=769244430&agencyIdOutBound=4&agencyIdInBound=4, line 1: ReferenceError: fbq is not defined
+JavaScript error: https://dev.tripi.vn/checkout/success/flight/-OmcWV3rccfpxYanPJewsw==?vnp_Amount=435200000&vnp_BankCode=NCB&vnp_BankTranNo=20181017165103&vnp_CardType=ATM&vnp_OrderInfo=1810173040&vnp_PayDate=20181017165116&vnp_ResponseCode=00&vnp_TmnCode=DULICH01&vnp_TransactionNo=13109493&vnp_TxnRef=18101707508&vnp_SecureHashType=MD5&vnp_SecureHash=b4ee3b3c2dc6754df9bc297d2a0c4ec2, line 1: ReferenceError: fbq is not defined
+]]></system-err>
+  </testcase>
+  <testcase name="AddBaggage" classname="actions.BookerActions" time="41.889"/>
+  <testcase name="ChangeItinerary" classname="actions.BookerActions" time="44.066"/>
+  <testcase name="ResendConfirmEmail" classname="actions.BookerActions" time="26.778"/>
+  <testcase name="RefundRequest" classname="actions.BookerActions" time="26.793"/>
+  <testcase name="VATRequest" classname="actions.BookerActions" time="27.046"/>
 </testsuite>

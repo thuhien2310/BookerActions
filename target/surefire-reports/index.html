@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">8 methods, 1 failed,   7 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="actions.BookerActions" class="method navigator-link" hash-for-method="BookFlight(0988100942, 123456, DAD, SGN, 3, 9, 2, 0, 0)">BookFlight(0988100942, 123456, DAD, SGN, 3, 9, 2, 0, 0)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,7 +116,37 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="actions.BookerActions" class="method navigator-link" hash-for-method="AddBaggage(0988100942, 123456)">AddBaggage(0988100942, 123456)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="actions.BookerActions" class="method navigator-link" hash-for-method="BookerLogin(0988100942, 123456)">BookerLogin(0988100942, 123456)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="actions.BookerActions" class="method navigator-link" hash-for-method="ChangeItinerary(0988100942, 123456)">ChangeItinerary(0988100942, 123456)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="actions.BookerActions" class="method navigator-link" hash-for-method="CheckBookerLoginUsingQuery">CheckBookerLoginUsingQuery</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="actions.BookerActions" class="method navigator-link" hash-for-method="RefundRequest(0988100942, 123456)">RefundRequest(0988100942, 123456)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="actions.BookerActions" class="method navigator-link" hash-for-method="ResendConfirmEmail(0988100942, 123456)">ResendConfirmEmail(0988100942, 123456)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="actions.BookerActions" class="method navigator-link" hash-for-method="VATRequest(0988100942, 123456)">VATRequest(0988100942, 123456)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -117,6 +161,26 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">actions.BookerActions</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="BookFlight(0988100942, 123456, DAD, SGN, 3, 9, 2, 0, 0)">
+                  </a> <!-- BookFlight(0988100942, 123456, DAD, SGN, 3, 9, 2, 0, 0) -->
+                  <span class="method-name">BookFlight</span>
+                  <span class="parameters">(0988100942, 123456, DAD, SGN, 3, 9, 2, 0, 0)</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [Giao dịch thành công.] but found [Có lỗi xảy ra, giao dịch không thành công.]
+	at actions.BookerActions.BookFlight(BookerActions.java:670)
+... Removed 40 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -125,9 +189,57 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="AddBaggage(0988100942, 123456)">
+                  </a> <!-- AddBaggage(0988100942, 123456) -->
+                  <span class="method-name">AddBaggage</span>
+                  <span class="parameters">(0988100942, 123456)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BookerLogin(0988100942, 123456)">
+                  </a> <!-- BookerLogin(0988100942, 123456) -->
+                  <span class="method-name">BookerLogin</span>
+                  <span class="parameters">(0988100942, 123456)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ChangeItinerary(0988100942, 123456)">
+                  </a> <!-- ChangeItinerary(0988100942, 123456) -->
+                  <span class="method-name">ChangeItinerary</span>
+                  <span class="parameters">(0988100942, 123456)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="CheckBookerLoginUsingQuery">
                   </a> <!-- CheckBookerLoginUsingQuery -->
                   <span class="method-name">CheckBookerLoginUsingQuery</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="RefundRequest(0988100942, 123456)">
+                  </a> <!-- RefundRequest(0988100942, 123456) -->
+                  <span class="method-name">RefundRequest</span>
+                  <span class="parameters">(0988100942, 123456)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ResendConfirmEmail(0988100942, 123456)">
+                  </a> <!-- ResendConfirmEmail(0988100942, 123456) -->
+                  <span class="method-name">ResendConfirmEmail</span>
+                  <span class="parameters">(0988100942, 123456)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VATRequest(0988100942, 123456)">
+                  </a> <!-- VATRequest(0988100942, 123456) -->
+                  <span class="method-name">VATRequest</span>
+                  <span class="parameters">(0988100942, 123456)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -143,6 +255,15 @@
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot; verbose=&quot;0&quot;&gt;
+    &lt;parameter name=&quot;to_date_book_add&quot; value=&quot;9&quot;/&gt;
+    &lt;parameter name=&quot;password&quot; value=&quot;123456&quot;/&gt;
+    &lt;parameter name=&quot;adult_num_book&quot; value=&quot;2&quot;/&gt;
+    &lt;parameter name=&quot;child_num_book&quot; value=&quot;0&quot;/&gt;
+    &lt;parameter name=&quot;from_airport_book&quot; value=&quot;DAD&quot;/&gt;
+    &lt;parameter name=&quot;to_airport_book&quot; value=&quot;SGN&quot;/&gt;
+    &lt;parameter name=&quot;from_date_book_add&quot; value=&quot;3&quot;/&gt;
+    &lt;parameter name=&quot;username&quot; value=&quot;0988100942&quot;/&gt;
+    &lt;parameter name=&quot;infant_num_book&quot; value=&quot;0&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;actions.BookerActions&quot;/&gt;
     &lt;/classes&gt;
@@ -184,16 +305,44 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(8);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'CheckBookerLoginUsingQuery')
+data.setCell(0, 1, 'BookFlight')
 data.setCell(0, 2, 'actions.BookerActions')
-data.setCell(0, 3, 40071);
+data.setCell(0, 3, 141866);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'ChangeItinerary')
+data.setCell(1, 2, 'actions.BookerActions')
+data.setCell(1, 3, 44066);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'AddBaggage')
+data.setCell(2, 2, 'actions.BookerActions')
+data.setCell(2, 3, 41890);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'CheckBookerLoginUsingQuery')
+data.setCell(3, 2, 'actions.BookerActions')
+data.setCell(3, 3, 39406);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'VATRequest')
+data.setCell(4, 2, 'actions.BookerActions')
+data.setCell(4, 3, 27047);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'RefundRequest')
+data.setCell(5, 2, 'actions.BookerActions')
+data.setCell(5, 3, 26794);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'ResendConfirmEmail')
+data.setCell(6, 2, 'actions.BookerActions')
+data.setCell(6, 3, 26777);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'BookerLogin')
+data.setCell(7, 2, 'actions.BookerActions')
+data.setCell(7, 3, 12468);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 40 seconds</span>
+              <span class="suite-total-time">Total running time: 6 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -225,12 +374,98 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">CheckBookerLoginUsingQuery</span>
-                <span class="method-start">5698 ms</span>
+                <span class="method-name">BookerLogin(0988100942, 123456)</span>
+                <span class="method-start">5528 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">45770 ms</span>
+                <span class="method-start">17997 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeTest</span>
+                <span class="method-start">18930 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">CheckBookerLoginUsingQuery</span>
+                <span class="method-start">24908 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">64322 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeTest</span>
+                <span class="method-start">65112 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">BookFlight(0988100942, 123456, DAD, SGN, 3, 9, 2, 0, 0)</span>
+                <span class="method-start">70230 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">212112 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeTest</span>
+                <span class="method-start">212978 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">AddBaggage(0988100942, 123456)</span>
+                <span class="method-start">217911 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">259801 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeTest</span>
+                <span class="method-start">260549 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">ChangeItinerary(0988100942, 123456)</span>
+                <span class="method-start">265942 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">310008 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeTest</span>
+                <span class="method-start">310792 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">ResendConfirmEmail(0988100942, 123456)</span>
+                <span class="method-start">315900 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">342678 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeTest</span>
+                <span class="method-start">343447 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">RefundRequest(0988100942, 123456)</span>
+                <span class="method-start">348677 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">375471 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeTest</span>
+                <span class="method-start">376444 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">VATRequest(0988100942, 123456)</span>
+                <span class="method-start">381917 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">408964 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

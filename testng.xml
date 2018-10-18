@@ -3,16 +3,17 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
   
- <!-- <parameter name="username" value="0988100942" />	
-  <parameter name="password" value="123456" />	
-  
-      <parameter name="from_airport_book" value="DAD" />	
+ 
+ 
+        <parameter name="username" value="0988100942" />	
+        <parameter name="password" value="123456" />	  
+        <parameter name="from_airport_book" value="DAD" />	
 		<parameter name="to_airport_book" value="SGN" />	
 		<parameter name="from_date_book_add" value="3" />	
 		<parameter name="to_date_book_add" value="9" />	
 		<parameter name="adult_num_book" value="2" />	
 		<parameter name="child_num_book" value="0" />	
-		<parameter name="infant_num_book" value="0" />	-->
+		<parameter name="infant_num_book" value="0" />	
 		
 		<classes>				
 				<class name="actions.BookerActions" />

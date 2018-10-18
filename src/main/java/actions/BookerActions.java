@@ -36,16 +36,16 @@ public class BookerActions extends BaseTest
 {
 	//------------------------------------------- Method 0 - kiem tra viec login vao tk booker voi các truong hop test khac nhau, data lay tu file excel, su dung thu vien fillo - cach nay gon nhe hon
 	@Parameters()
-	 @Test(enabled = true)
+	@Test(enabled = true)
 	public void CheckBookerLoginUsingQuery() throws Exception
 	{
 		 System.out.println("Thuc hien viec kiem tra cac truong hop login vao trang");
 		   System.out.println(" "
-		   		+ "      * SS1: Enter valid userid & password \r\n" + 
+		   		+ "      * S0: Enter valid userid & password \r\n" + 
 		   		"	     *      Expected: Login successful home page shown \r\n" + 
-		   		"	     * SS2: Enter invalid userid & valid password \r\n" + 
-		   		"	     * SS3: Enter valid userid & invalid password \r\n" + 
-		   		"	     * SS4: Enter invalid userid & invalid password \r\n" + 
+		   		"	     * S1: Enter invalid userid & valid password \r\n" + 
+		   		"	     * S2: Enter valid userid & invalid password \r\n" + 
+		   		"	     * S3: Enter invalid userid & invalid password \r\n" + 
 		   		"	     *      Expected: A pop-up �User or Password is not valid� is shown "); 
 		 String uName, uPass;
 
@@ -251,11 +251,11 @@ public class BookerActions extends BaseTest
 			
 		    }
 	
-	/*
+	
 	
 		//------------------------------------------- Method 1
-	    //@Parameters({"username","password"})
-	    //@Test(enabled = true)
+	    @Parameters({"username","password"})
+	    @Test(enabled = true)
 		public void BookerLogin (String username, String password)
 		{
 			System.out.println("Thuc hien viec login vao tai khoan booker "+username);
@@ -483,9 +483,9 @@ public class BookerActions extends BaseTest
 					WebElement searchButton = driver.findElement(By.cssSelector(".flight-search-button"));		
 					searchButton.click();		
 					TimeUtils.sleep(30);
-					 File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				//	 File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 				  // Code to save screenshot at desired location
-				   FileUtils.copyFile(scrFile, new File("C:\\Users\\Asrock.DESKTOP-1D8CK3P\\eclipse-workspace\\BookerActions\\screenshot_searchresult.png"));
+				//   FileUtils.copyFile(scrFile, new File("C:\\Users\\Asrock.DESKTOP-1D8CK3P\\eclipse-workspace\\BookerActions\\screenshot_searchresult.png"));
 					System.out.println("Da thuc hien tim kiem xong");
 		}
 
@@ -497,8 +497,8 @@ public class BookerActions extends BaseTest
 		
 		
 		//------------------------------------------- Method 3--- Thuc hien dat va thanh toan ve qua cong thanh toan ATM - ngan hang NCB
-	//	@Parameters({"username","password", "from_airport_book","to_airport_book","from_date_book_add", "to_date_book_add","adult_num_book","child_num_book","infant_num_book"})
-	//	@Test(priority = 3, enabled = true)
+		@Parameters({"username","password", "from_airport_book","to_airport_book","from_date_book_add", "to_date_book_add","adult_num_book","child_num_book","infant_num_book"})
+		@Test(priority = 3, enabled = true)
 		public void BookFlight 	(String username, String password, String from_airport_book, String to_airport_book, int from_date_book_add, int to_date_book_add, int adult_num_book, int child_num_book, int infant_num_book)
 	    {
 			System.out.println("3. Thuc hien dat va thanh toan ve qua cong thanh toan ATM - ngan hang NCB");
@@ -668,16 +668,16 @@ public class BookerActions extends BaseTest
 	    					
 	    					List<WebElement> successElement = driver.findElements(By.cssSelector(".ng-binding"));	    					
 	    					Assert.assertEquals(successElement.get(1).getText(),"Giao dịch thành công.");
-	    					 File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	    		//			 File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 				           // Code to save screenshot at desired location
-							FileUtils.copyFile(scrFile, new File("C:\\Users\\Asrock.DESKTOP-1D8CK3P\\eclipse-workspace\\BookerActions\\paymentsuccess.png"));
+				//			FileUtils.copyFile(scrFile, new File("C:\\Users\\Asrock.DESKTOP-1D8CK3P\\eclipse-workspace\\BookerActions\\paymentsuccess.png"));
 	    					
 	    					
 	    }		
 
 		//------------------------------------------- Method 4--- Thuc hien mua them hanh ly cho mot don hang - mac dinh tai khoan da co don hang thanh cong
-		//@Parameters({"username","password"})
-		//@Test(priority = 4, enabled = true)		
+		@Parameters({"username","password"})
+		@Test(priority = 4, enabled = true)		
 		public void AddBaggage (String username, String password)
 		{
 			System.out.println("3. Thuc hien mua them hanh ly cho mot don hang - mac dinh tai khoan da co don hang thanh cong");
@@ -727,7 +727,7 @@ public class BookerActions extends BaseTest
 			TimeUtils.sleep(2);
 			
 			List<WebElement> creditRadioArray = driver.findElements(By.cssSelector(".ng-binding"));
-			WebElement creditRadio = creditRadioArray.get(3);
+			WebElement creditRadio = creditRadioArray.get(2);
 			creditRadio.click();
 			TimeUtils.sleep(2);
 			
@@ -743,15 +743,15 @@ public class BookerActions extends BaseTest
 			Assert.assertEquals(successElement.get(1).getText(),"Giao dịch thành công");
 					
 			System.out.println("Thuc hien mua hanh ly thanh cong");		
-			 File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			// File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 				// Code to save screenshot at desired location
-				FileUtils.copyFile(scrFile, new File("C:\\Users\\Asrock.DESKTOP-1D8CK3P\\eclipse-workspace\\BookerActions\\themhanhlythanhcong.png"));
+			//	FileUtils.copyFile(scrFile, new File("C:\\Users\\Asrock.DESKTOP-1D8CK3P\\eclipse-workspace\\BookerActions\\themhanhlythanhcong.png"));
 			
 		}
 
 		//------------------------------------------- Method 5--- Thuc hien doi hanh trinh cho mot don hang - mac dinh tai khoan da co don hang thanh cong
-	//	@Parameters({"username","password"})
-	//	@Test(priority = 5, enabled = true)	
+		@Parameters({"username","password"})
+		@Test(priority = 5, enabled = true)	
 		public void ChangeItinerary (String username, String password)
 		{
 			System.out.println("4. Thuc hien doi hanh trinh cho mot don hang - mac dinh tai khoan da co don hang thanh cong");
@@ -782,11 +782,10 @@ public class BookerActions extends BaseTest
 			
 			//luu ngay cua ve da chon
         	String ticketDate = driver.findElement(By.cssSelector(".col-sm-12.no-padding.fil-date-departure.ng-binding")).getText();
+        	System.out.println(ticketDate);
         	//tach bo dau - phan cach giua ngay, thang, nam, ta duoc mang gom cac phan tu
-        	String[] dateArray = ticketDate.split("-");
-        	//bo qua dau cach o dau, ta lay ki tu thu 1 va 2 -> tra ve la dd
-        	String dateChain = dateArray[0].substring(1,2);
-        	      	
+        	String[] dateArray = ticketDate.split("-");      
+        	System.out.println(dateArray[0]);       
         	
 			WebElement editIcon = driver.findElement(By.cssSelector(".fi-right.ng-scope"));			
 			WebElement editImage = editIcon.findElement(By.tagName("img"));
@@ -800,8 +799,11 @@ public class BookerActions extends BaseTest
             	List<WebElement> listTicket = listTicketDiv.findElements(By.cssSelector(".item-ticket.ng-scope"));
             	//chon ngay cach ngay da chon 1 ngay
             	            	
-            	int date = Integer.parseInt(dateChain);
+            	int date = Integer.parseInt(dateArray[0]);
+            	//System.out.println(dateChain);
+            	System.out.println(date);
             	date = date+1;
+            	System.out.println(date);
             	WebElement datePicker = driver.findElement(By.cssSelector("#profit-from-date"));
             	datePicker.click();
             	TimeUtils.sleep(2);          	
@@ -851,8 +853,8 @@ public class BookerActions extends BaseTest
 		}
 
 		//------------------------------------------- Method 6--- Thuc hien Gui lai email xac nhan - mac dinh tai khoan da co don hang thanh cong
-	//	@Parameters({"username","password"})
-	//	@Test(priority = 6, enabled = true)	
+		@Parameters({"username","password"})
+		@Test(priority = 6, enabled = true)	
 		public void ResendConfirmEmail (String username, String password)
 		{
 			System.out.println(". Thuc hien Gui lai email xac nhan - mac dinh tai khoan da co don hang thanh cong");
@@ -894,8 +896,8 @@ public class BookerActions extends BaseTest
 		}
 		
 		//------------------------------------------- Method 7 -- Thuc hien Hoan huy - mac dinh tai khoan da co don hang thanh cong
-		//	@Parameters({"username","password"})
-		//	@Test(priority = 7, enabled = true)	
+			@Parameters({"username","password"})
+			@Test(priority = 7, enabled = true)	
 		public void RefundRequest (String username, String password)
 			{
 				System.out.println(". Thuc hien Hoan huy - mac dinh tai khoan da co don hang thanh cong");
@@ -1031,7 +1033,7 @@ public class BookerActions extends BaseTest
 					}
 					
 				}
-*/
+
 			}
 
 

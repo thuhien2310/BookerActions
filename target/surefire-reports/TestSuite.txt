@@ -1,4 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 47.224 sec
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 410.384 sec <<< FAILURE!
+BookFlight(actions.BookerActions)  Time elapsed: 141.881 sec  <<< FAILURE!
+java.lang.AssertionError: expected [Giao dịch thành công.] but found [Có lỗi xảy ra, giao dịch không thành công.]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at actions.BookerActions.BookFlight(BookerActions.java:670)
+

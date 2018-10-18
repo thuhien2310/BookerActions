@@ -2,12 +2,21 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
   <test thread-count="5" name="Test(failed)" verbose="0">
+    <parameter name="to_date_book_add" value="9"/>
+    <parameter name="password" value="123456"/>
+    <parameter name="adult_num_book" value="2"/>
+    <parameter name="child_num_book" value="0"/>
+    <parameter name="from_airport_book" value="DAD"/>
+    <parameter name="to_airport_book" value="SGN"/>
+    <parameter name="from_date_book_add" value="3"/>
+    <parameter name="username" value="0988100942"/>
+    <parameter name="infant_num_book" value="0"/>
     <classes>
       <class name="actions.BookerActions">
         <methods>
           <include name="beforeTest"/>
+          <include name="BookFlight" invocation-numbers="0"/>
           <include name="afterTest"/>
-          <include name="CheckBookerLoginUsingQuery"/>
         </methods>
       </class> <!-- actions.BookerActions -->
     </classes>
